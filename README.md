@@ -1,1 +1,1 @@
-## cotacao de moedas
+Analysis of currencies relative to USD from Central Bank of Brazil quotations
