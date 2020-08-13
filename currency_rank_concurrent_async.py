@@ -5,33 +5,31 @@ import argparse
 from time import time
 from io import StringIO
 
+import asyncio
+import aiohttp
 import pandas as pd
-import requests
 
 
+async def fetch(session, url):
+    async with session.get(url) as response:
+        return await (response.text())
 
-def get_currecy_rank(date=None):
-    """
-    This Routine downloads from Brazil central bank site two csv files
-    with currency information, preprocess then and generate a dataframe
-    containing a rank of the worst currency relative to USD quotation
+# async def download_from_source(url):
+#     data_from_url = StringIO(requests.get(url).text)
+#     return data_from_url
 
-    :param date: iso format timestamp of a market date. eg: 20200811
-    :return: Dataframe or Series with the currency information
-    """
+async def download_preprocess_currency_quotation_df(date: int) -> pd.DataFrame:
 
+    currencies_prices_url = f"https://www4.bcb.gov.br/Download/fechamento/{date}.csv"
     try:
-        ########################################################
-        # FIRST DATAFRAME - ALL CURRENCIES VALUES AT MARKET CLOSE
-        ########################################################
-
-        currencies_prices_url = f"https://www4.bcb.gov.br/Download/fechamento/{date}.csv"
-
-        data_from_url = StringIO(requests.get(currencies_prices_url).text)
+        async with aiohttp.ClientSession() as session:
+            data_from_url = await fetch(session,currencies_prices_url)
+    except:raise
+    else:
         cols = ['Timestamp', 'Cod Moeda', 'Tipo', 'Moeda',
                 'Taxa Compra', 'Taxa Venda', 'Paridade Compra',
                 'Paridade Venda']
-        df = pd.read_csv(data_from_url, sep=";", names=cols)
+        df = pd.read_csv(StringIO(data_from_url), sep=";", names=cols)
 
         # PREPROCESSING CURRENCY VALUES
         aux = df.set_index('Moeda')
@@ -49,21 +47,57 @@ def get_currecy_rank(date=None):
         # sorting by the formula result
         sorted_df = new_df.sort_values(by='USD to Currency', ascending=False)
 
-        ########################################################
-        # SECCOND DATAFRAME - CURRENCIES INFO VALUES AT MARKET CLOSE
-        ########################################################
+        return sorted_df
 
-        info_currencies_url = f"https://www4.bcb.gov.br/Download/fechamento/M{date}.csv"
+
+async def download_preprocess_currencies_info_df(date: int) -> pd.DataFrame:
+    ########################################################
+    # SECCOND DATAFRAME - CURRENCIES INFO VALUES AT MARKET CLOSE
+    ########################################################
+
+    info_currencies_url = f"https://www4.bcb.gov.br/Download/fechamento/M{date}.csv"
+    try:
+        async with aiohttp.ClientSession() as session:
+            info_data_from_url = await fetch(session, info_currencies_url)
+    except:raise
+
+    else:
         cols = ['Codigo', 'Nome', 'Simbolo', 'Cod. Pais', 'Pais', 'Tipo', 'Data Exlusao Ptax']
-
-        info_data_from_url = StringIO(requests.get(info_currencies_url).text)
-        df_info = pd.read_csv(info_data_from_url, sep=";", names=cols, encoding="latin")
+        df_info = pd.read_csv(StringIO(info_data_from_url), sep=";", names=cols, encoding="latin")
         # removes first row
-        df_info = df_info.iloc[1 :]
+        df_info = df_info.iloc[1:]
 
         # FIXING THE EMPTY SPACES FROM 'Simbolo' column, as it will be our index matching criteria
         df_info['Simbolo'] = df_info['Simbolo'].astype(str)
         df_info["Simbolo"] = df_info["Simbolo"].str.replace(' ', '')
+
+        return df_info
+
+
+async def get_currecy_rank(date: int) -> pd.DataFrame:
+    """
+    This Routine downloads from Brazil central bank site two csv files
+    with currency information, preprocess then and generate a dataframe
+    containing a rank of the worst currency relative to USD quotation
+
+    :param date: iso format timestamp of a market date. eg: 20200811
+    :return: Dataframe or Series with the currency information
+    """
+
+    try:
+
+        sorted_df_task =  asyncio.create_task(
+            download_preprocess_currency_quotation_df(date))
+
+        df_info_task =  asyncio.create_task(
+            download_preprocess_currencies_info_df(date))
+
+        sorted_df = await download_preprocess_currency_quotation_df(date)
+        df_info = await download_preprocess_currencies_info_df(date)
+
+        #
+        # sorted_df, df_info = await asyncio.gather(download_preprocess_currency_quotation_df(date),
+        #                                           download_preprocess_currencies_info_df(date))
 
         ########################################################
         ### JOINING AND PREPROCESSING THE FINAL DATAFRAME
@@ -92,9 +126,8 @@ def get_currecy_rank(date=None):
         return cli_result
 
     except Exception as e:
-        return "x"
-
-
+        return 'x'
+        return str(e)
 
 
 if __name__ == "__main__":
@@ -104,14 +137,22 @@ if __name__ == "__main__":
     # parser.add_argument('date', metavar='[ISO Timestamp eg: 20200810]', type=int,
     #                     help='The market date to search. eg: 20200810 or 20150812')
     # args = parser.parse_args()
-    #
-    # result = get_currecy_rank(args.date)
-    result = get_currecy_rank(20200810)
+
+
+    args = 20200810
+    loop = asyncio.get_event_loop()
+    result = loop.run_until_complete(get_currecy_rank(args))
+
+    # result = asyncio.run(get_currecy_rank(args))
+
+    # result = asyncio.run(get_currecy_rank(args.date))
     print("\n=====================================")
     print(', '.join(result))
     print("=====================================\n")
 
     print(f"Process took: {time() - start} seconds")
+
+
     # TODO
     """
     Refactor to smaller function, tests, api, treat exception
