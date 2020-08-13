@@ -14,11 +14,11 @@ async def fetch(session, url):
     async with session.get(url) as response:
         return await (response.text())
 
-# async def download_from_source(url):
-#     data_from_url = StringIO(requests.get(url).text)
-#     return data_from_url
 
 async def download_preprocess_currency_quotation_df(date: int) -> pd.DataFrame:
+    ########################################################
+    # FIRST DATAFRAME - ALL CURRENCIES VALUES AT MARKET CLOSE
+    ########################################################
 
     currencies_prices_url = f"https://www4.bcb.gov.br/Download/fechamento/{date}.csv"
     try:
@@ -74,7 +74,7 @@ async def download_preprocess_currencies_info_df(date: int) -> pd.DataFrame:
         return df_info
 
 
-async def get_currecy_rank(date: int) -> pd.DataFrame:
+async def create_currency_df(date: int) -> pd.DataFrame:
     """
     This Routine downloads from Brazil central bank site two csv files
     with currency information, preprocess then and generate a dataframe
@@ -86,18 +86,15 @@ async def get_currecy_rank(date: int) -> pd.DataFrame:
 
     try:
 
-        sorted_df_task =  asyncio.create_task(
+        # schedules and executes concurrent async download tasks
+        sorted_df_task = asyncio.create_task(
             download_preprocess_currency_quotation_df(date))
 
-        df_info_task =  asyncio.create_task(
+        df_info_task = asyncio.create_task(
             download_preprocess_currencies_info_df(date))
 
         sorted_df = await sorted_df_task
         df_info = await df_info_task
-
-        #
-        # sorted_df, df_info = await asyncio.gather(download_preprocess_currency_quotation_df(date),
-        #                                           download_preprocess_currencies_info_df(date))
 
         ########################################################
         ### JOINING AND PREPROCESSING THE FINAL DATAFRAME
@@ -113,42 +110,18 @@ async def get_currecy_rank(date: int) -> pd.DataFrame:
         filtered_df = final_df_aux[final_df_aux['Pais'].notnull()]
         unique_filtered_df = filtered_df.drop_duplicates(subset=['Cod Moeda'])
 
-        # RANK
-        worst_currency = unique_filtered_df[:1]
-        result = worst_currency
-
-        # formatting result to CLI
-        currency_symbol = f" {result['Pais'].index[0]}"
-        country = result['Pais'][0].strip()
-        usd_to_currency = str(result['USD to Currency'][0].round(3))
-        cli_result = [ currency_symbol, country, usd_to_currency ]
-
-        return cli_result
+        return unique_filtered_df
 
     except Exception as e:
         return 'x'
-        return str(e)
+        # return str(e)
 
 
-if __name__ == "__main__":
-    start = time()
+# if __name__ == '__main__':
+#     loop = asyncio.get_event_loop()
+#     result = loop.run_until_complete(create_currency_df(20200810))
 
-    parser = argparse.ArgumentParser(description='Returns worst currency relative to USD from Central Bank of Brazil quotation date')
-    parser.add_argument('date', metavar='[ISO Timestamp eg: 20200810]', type=int,
-                        help='The market date to search. eg: 20200810 or 20150812')
-    args = parser.parse_args()
-
-    loop = asyncio.get_event_loop()
-    result = loop.run_until_complete(get_currecy_rank(args.date))
-
-    print("\n=====================================")
-    print(', '.join(result))
-    print("=====================================\n")
-
-    print(f"Process took: {time() - start} seconds")
-
-
-    # TODO
-    """
-    tests, api, treat exception
-    """
+# TODO
+"""
+tests, api, treat exception
+"""
