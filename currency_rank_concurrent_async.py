@@ -92,8 +92,8 @@ async def get_currecy_rank(date: int) -> pd.DataFrame:
         df_info_task =  asyncio.create_task(
             download_preprocess_currencies_info_df(date))
 
-        sorted_df = await download_preprocess_currency_quotation_df(date)
-        df_info = await download_preprocess_currencies_info_df(date)
+        sorted_df = await sorted_df_task
+        df_info = await df_info_task
 
         #
         # sorted_df, df_info = await asyncio.gather(download_preprocess_currency_quotation_df(date),
@@ -133,19 +133,14 @@ async def get_currecy_rank(date: int) -> pd.DataFrame:
 if __name__ == "__main__":
     start = time()
 
-    # parser = argparse.ArgumentParser(description='Returns worst currency relative to USD from Central Bank of Brazil quotation date')
-    # parser.add_argument('date', metavar='[ISO Timestamp eg: 20200810]', type=int,
-    #                     help='The market date to search. eg: 20200810 or 20150812')
-    # args = parser.parse_args()
+    parser = argparse.ArgumentParser(description='Returns worst currency relative to USD from Central Bank of Brazil quotation date')
+    parser.add_argument('date', metavar='[ISO Timestamp eg: 20200810]', type=int,
+                        help='The market date to search. eg: 20200810 or 20150812')
+    args = parser.parse_args()
 
-
-    args = 20200810
     loop = asyncio.get_event_loop()
-    result = loop.run_until_complete(get_currecy_rank(args))
+    result = loop.run_until_complete(get_currecy_rank(args.date))
 
-    # result = asyncio.run(get_currecy_rank(args))
-
-    # result = asyncio.run(get_currecy_rank(args.date))
     print("\n=====================================")
     print(', '.join(result))
     print("=====================================\n")
@@ -155,5 +150,5 @@ if __name__ == "__main__":
 
     # TODO
     """
-    Refactor to smaller function, tests, api, treat exception
+    tests, api, treat exception
     """
