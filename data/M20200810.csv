@@ -1,5 +1,5 @@
-"Código";"Nome";"Simbolo";"Código País";"País";"Tipo";"Data Exclusão PTAX"
-005;AFEGANE AFEGANIST;AFN    ;132;AFEGANISTAO                                       ;A;
+Código;Nome;Simbolo;Código País;País;Tipo;Data Exclusão PTAX
+5;AFEGANE AFEGANIST;AFN    ;132;AFEGANISTAO                                       ;A;
 785;RANDE/AFRICA SUL ;ZAR    ;7560;AFRICA DO SUL                                     ;A;
 490;LEK ALBANIA REP;ALL    ;175;ALBANIA, REPUBLICA DA                             ;A;
 610;MARCO ALEMAO     ;DEM    ;230;ALEMANHA                                          ;A;02/01/2002
@@ -9,8 +9,8 @@
 215;DOLAR CARIBE ORIENTAL;XCD    ;418;ANGUILLA                                          ;A;
 215;DOLAR CARIBE ORIENTAL;XCD    ;434;ANTIGUA E BARBUDA                                 ;A;
 820;RIAL/ARAB SAUDITA;SAR    ;531;ARABIA SAUDITA                                    ;A;
-095;DINAR ARGELINO   ;DZD    ;590;ARGELIA                                           ;A;
-010;AUSTRAL          ;ARG    ;639;ARGENTINA                                         ;A;16/12/2009
+95;DINAR ARGELINO   ;DZD    ;590;ARGELIA                                           ;A;
+10;AUSTRAL          ;ARG    ;639;ARGENTINA                                         ;A;16/12/2009
 705;PESO ARGENTINO   ;$(ARG) ;639;ARGENTINA                                         ;A;03/11/1986
 706;PESO ARGENTINO;ARS    ;639;ARGENTINA                                         ;A;
 275;DRAM ARMENIA REP;AMD    ;647;ARMENIA, REPUBLICA DA                             ;A;
@@ -30,16 +30,16 @@
 180;DOLAR/BELIZE     ;BZD    ;884;BELIZE                                            ;A;
 372;FRANCO CFA BCEAO;XOF    ;2291;BENIN                                             ;A;
 160;DOLAR/BERMUDAS   ;BMD    ;906;BERMUDAS                                          ;A;
-030;BOLIVIANO/BOLIVIA;BOB    ;973;BOLIVIA                                           ;A;
+30;BOLIVIANO/BOLIVIA;BOB    ;973;BOLIVIA                                           ;A;
 710;PESO BOLIVIANO   ;$B     ;973;BOLIVIA                                           ;A;20/09/1993
 612;MARCO CONV BOSNIA;BAM    ;981;BOSNIA-HERZEGOVINA (REPUBLICA DA)                 ;A;
 755;PULA/BOTSWANA    ;BWP    ;1015;BOTSUANA                                          ;B;
-079;CRUZADO          ;CZ$    ;1058;BRASIL                                            ;A;15/01/1989
-080;CRUZEIRO         ;CR$    ;1058;BRASIL                                            ;A;27/02/1986
-083;CRUZEIRO         ;CR$    ;1058;BRASIL                                            ;A;31/07/1993
-085;CRUZEIRO REAL    ;CR$    ;1058;BRASIL                                            ;A;30/06/1994
+79;CRUZADO          ;CZ$    ;1058;BRASIL                                            ;A;15/01/1989
+80;CRUZEIRO         ;CR$    ;1058;BRASIL                                            ;A;27/02/1986
+83;CRUZEIRO         ;CR$    ;1058;BRASIL                                            ;A;31/07/1993
+85;CRUZEIRO REAL    ;CR$    ;1058;BRASIL                                            ;A;30/06/1994
 790;REAL BRASIL;BRL    ;1058;BRASIL                                            ;A;
-078;CRUZADO NOVO     ;NCZ$   ;1058;BRASIL                                            ;A;15/03/1990
+78;CRUZADO NOVO     ;NCZ$   ;1058;BRASIL                                            ;A;15/03/1990
 185;DOLAR BRUNEI;BND    ;1082;BRUNEI                                            ;A;
 510;LEV/BULGARIA, REP;BGN    ;1112;BULGARIA, REPUBLICA DA                            ;A;
 372;FRANCO CFA BCEAO;XOF    ;310;BURKINA FASO                                      ;A;
@@ -73,29 +73,29 @@
 995;BUA              ;BUA    ;1937;COSTA DO MARFIM                                   ;B;17/12/2009
 996;FUA              ;FUA    ;1937;COSTA DO MARFIM                                   ;B;17/12/2009
 372;FRANCO CFA BCEAO;XOF    ;1937;COSTA DO MARFIM                                   ;A;
-040;COLON/COSTA RICA ;CRC    ;1961;COSTA RICA                                        ;A;
+40;COLON/COSTA RICA ;CRC    ;1961;COSTA RICA                                        ;A;
 100;DINAR/KWAIT      ;KWD    ;1988;COVEITE                                           ;A;
 779;KUNA/CROACIA     ;HRK    ;1953;CROACIA (REPUBLICA DA)                            ;A;
 725;PESO/CUBA        ;CUP    ;1996;CUBA                                              ;A;
 325;GUILDER ANTILHAS HOLANDESAS;ANG    ;3601;CURAÇAO;A;
-055;COROA DINAMARQUESA;DKK    ;2321;DINAMARCA                                         ;A;
+55;COROA DINAMARQUESA;DKK    ;2321;DINAMARCA                                         ;A;
 390;FRANCO/DJIBUTI   ;DJF    ;7838;DJIBUTI                                           ;A;
 215;DOLAR CARIBE ORIENTAL;XCD    ;2356;DOMINICA,ILHA                                     ;A;
 535;LIBRA/EGITO      ;EGP    ;2402;EGITO                                             ;A;
-045;COLON/EL SALVADOR;SVC    ;6874;EL SALVADOR                                       ;A;
+45;COLON/EL SALVADOR;SVC    ;6874;EL SALVADOR                                       ;A;
 145;DIRHAM/EMIR.ARABE;AED    ;2445;EMIRADOS ARABES UNIDOS                            ;A;
 895;SUCRE EQUADOR;ECS    ;2399;EQUADOR                                           ;A;09/09/2000
 625;NAKFA ERITREIA;ERN    ;2437;ERITREIA                                          ;A;
-058;COROA ESLOVACA   ;SKK    ;2470;ESLOVACA, REPUBLICA                               ;A;03/03/2009
+58;COROA ESLOVACA   ;SKK    ;2470;ESLOVACA, REPUBLICA                               ;A;03/03/2009
 978;EURO;EUR    ;2470;ESLOVACA, REPUBLICA                               ;B;
 914;TOLAR/ESLOVENIA  ;SIT    ;2461;ESLOVENIA, REPUBLICA DA                           ;A;03/03/2009
 978;EURO;EUR    ;2461;ESLOVENIA, REPUBLICA DA                           ;B;
 978;EURO;EUR    ;2453;ESPANHA                                           ;B;
 700;PESETA ESPANHOLA ;ESP    ;2453;ESPANHA                                           ;A;02/01/2002
 220;DOLAR DOS EUA;USD    ;2496;ESTADOS UNIDOS                                    ;A;
-057;COROA ESTONIA;EEK    ;2518;ESTONIA, REPUBLICA DA                             ;A;17/01/2011
+57;COROA ESTONIA;EEK    ;2518;ESTONIA, REPUBLICA DA                             ;A;17/01/2011
 978;EURO;EUR    ;2518;ESTONIA, REPUBLICA DA                             ;B;
-009;BIRR/ETIOPIA     ;ETB    ;2534;ETIOPIA                                           ;A;
+9;BIRR/ETIOPIA     ;ETB    ;2534;ETIOPIA                                           ;A;
 545;LIBRA/FALKLAND   ;FKP    ;2550;FALKLAND (ILHAS MALVINAS)                         ;B;
 200;DOLAR FIJI;FJD    ;8702;FIJI                                              ;B;
 735;PESO/FILIPINAS   ;PHP    ;2674;FILIPINAS                                         ;A;
@@ -105,8 +105,8 @@
 395;FRANCO FRANCES   ;FRF    ;2755;FRANCA                                            ;A;02/01/2002
 978;EURO;EUR    ;2755;FRANCA                                            ;B;
 370;FRANCO CFA BEAC;XAF    ;2810;GABAO                                             ;A;
-090;DALASI/GAMBIA    ;GMD    ;2852;GAMBIA                                            ;A;
-035;CEDI GANA;GHS    ;2895;GANA                                              ;A;
+90;DALASI/GAMBIA    ;GMD    ;2852;GAMBIA                                            ;A;
+35;CEDI GANA;GHS    ;2895;GANA                                              ;A;
 482;LARI GEORGIA;GEL    ;2917;GEORGIA, REPUBLICA DA                             ;A;
 530;LIBRA/GIBRALTAR  ;GIP    ;2933;GIBRALTAR                                         ;B;
 215;DOLAR CARIBE ORIENTAL;XCD    ;2976;GRANADA                                           ;A;
@@ -133,7 +133,7 @@
 115;DINAR/IRAQUE     ;IQD    ;3697;IRAQUE                                            ;A;
 550;LIBRA/IRLANDA    ;IEP    ;3751;IRLANDA                                           ;B;02/01/2002
 978;EURO;EUR    ;3751;IRLANDA                                           ;B;
-060;COROA ISLND/ISLAN;ISK    ;3794;ISLANDIA                                          ;A;
+60;COROA ISLND/ISLAN;ISK    ;3794;ISLANDIA                                          ;A;
 880;SHEKEL/ISRAEL    ;ILS    ;3832;ISRAEL                                            ;A;
 595;LIRA ITALIANA    ;ITL    ;3867;ITALIA                                            ;A;02/01/2002
 978;EURO;EUR    ;3867;ITALIA                                            ;B;
@@ -183,16 +183,16 @@
 215;DOLAR CARIBE ORIENTAL;XCD    ;5010;MONTSERRAT,ILHAS                                  ;A;
 173;DOLAR DA NAMIBIA;NAD    ;5070;NAMIBIA                                           ;A;
 845;RUPIA/NEPAL      ;NPR    ;5177;NEPAL                                             ;A;
-051;CORDOBA OURO     ;NIO    ;5215;NICARAGUA                                         ;A;
+51;CORDOBA OURO     ;NIO    ;5215;NICARAGUA                                         ;A;
 372;FRANCO CFA BCEAO;XOF    ;5258;NIGER                                             ;A;
 630;NAIRA NIGERIA;NGN    ;5282;NIGERIA                                           ;A;
 245;DOLAR NOVA ZELANDIA;NZD    ;5312;NIUE,ILHA                                         ;B;
-065;COROA NORUEGUESA;NOK    ;5380;NORUEGA                                           ;A;
+65;COROA NORUEGUESA;NOK    ;5380;NORUEGA                                           ;A;
 245;DOLAR NOVA ZELANDIA;NZD    ;5487;NOVA ZELANDIA                                     ;B;
 805;RIAL/OMA         ;OMR    ;5568;OMA                                               ;A;
 978;EURO;EUR    ;5738;PAISES BAIXOS (HOLANDA)                           ;B;
 335;FLORIM HOLANDES  ;NLG    ;5738;PAISES BAIXOS (HOLANDA)                           ;A;02/01/2002
-020;BALBOA/PANAMA    ;PAB    ;5800;PANAMA                                            ;A;
+20;BALBOA/PANAMA    ;PAB    ;5800;PANAMA                                            ;A;
 778;KINA/PAPUA N GUIN;PGK    ;5452;PAPUA NOVA GUINE                                  ;B;
 875;RUPIA/PAQUISTAO  ;PKR    ;5762;PAQUISTAO                                         ;A;
 450;GUARANI/PARAGUAI ;PYG    ;5860;PARAGUAI                                          ;A;
@@ -237,16 +237,16 @@
 134;NOVA LIBRA SUDANESA;SDG    ;7595;SUDAO                                             ;A;
 580;LIBRA SUDANESA   ;LSD    ;7595;SUDAO                                             ;B;21/05/1996
 136;LIBRA SUL SUDANESA;SSP    ;7596;SUDAO DO SUL;A;
-070;COROA SUECA;SEK    ;7641;SUECIA                                            ;A;
+70;COROA SUECA;SEK    ;7641;SUECIA                                            ;A;
 425;FRANCO SUICO;CHF    ;7676;SUICA                                             ;A;
 255;DOLAR/SURINAME   ;SRD    ;7706;SURINAME                                          ;A;
 330;FLORIM/SURINAME  ;SRG    ;7706;SURINAME                                          ;A;06/09/2005
 333;DOLAR/SURINAME   ;SRD    ;7706;SURINAME                                          ;A;06/09/2005
 835;SOMONI TADJIQUISTAO;TJS    ;7722;TADJIQUISTAO, REPUBLICA DO                        ;A;
-015;BATH/TAILANDIA   ;THB    ;7765;TAILANDIA                                         ;A;
+15;BATH/TAILANDIA   ;THB    ;7765;TAILANDIA                                         ;A;
 945;XELIM DA TANZANIA;T SH   ;7803;TANZANIA, REP.UNIDA DA                            ;A;25/11/1999
 946;XELIM/TANZANIA   ;TZS    ;7803;TANZANIA, REP.UNIDA DA                            ;A;
-075;COROA TCHECA     ;CZK    ;7919;TCHECA, REPUBLICA                                 ;A;
+75;COROA TCHECA     ;CZK    ;7919;TCHECA, REPUBLICA                                 ;A;
 320;ESCUDO TIMOR LESTE;TPE    ;7951;TIMOR LESTE                                       ;A;01/01/2000
 372;FRANCO CFA BCEAO;XOF    ;8001;TOGO                                              ;A;
 680;PAANGA/TONGA     ;TOP    ;8109;TONGA                                             ;B;
@@ -260,18 +260,18 @@
 745;PESO/URUGUAIO    ;UYU    ;8451;URUGUAI                                           ;A;
 893;SOM UZBEQUISTAO;UZS    ;8478;UZBEQUISTAO, REPUBLICA DO                         ;A;
 920;VATU VANUATU;VUV    ;5517;VANUATU                                           ;A;
-027;BOLIVAR SOBERANO VENEZUELANO;VES    ;8508;VENEZUELA                                         ;A;
-025;BOLIVAR/VENZUELA ;VEB    ;8508;VENEZUELA                                         ;A;17/12/2009
-026;BOLIVAR VENEZUELANO;VEF    ;8508;VENEZUELA                                         ;A;19/08/2018
+27;BOLIVAR SOBERANO VENEZUELANO;VES    ;8508;VENEZUELA                                         ;A;
+25;BOLIVAR/VENZUELA ;VEB    ;8508;VENEZUELA                                         ;A;17/12/2009
+26;BOLIVAR VENEZUELANO;VEF    ;8508;VENEZUELA                                         ;A;19/08/2018
 260;DONGUE/VIETNAN   ;VND    ;8583;VIETNA                                            ;A;
 220;DOLAR DOS EUA;USD    ;8630;VIRGENS,ILHAS (BRITANICAS)                        ;A;
 220;DOLAR DOS EUA;USD    ;8664;VIRGENS,ILHAS (E.U.A.)                            ;A;
 766;QUACHA ZAMBIA;ZMW    ;8907;ZAMBIA                                            ;A;
 765;QUACHA ZAMBIA;ZMK    ;8907;ZAMBIA                                            ;A;31/12/2012
 217;DOLAR ZIMBABUE;ZWL    ;6653;ZIMBABUE                                          ;A;
-008;BIRR             ;ETB    ;;;A;28/07/1998
-050;CORDOBA/NICARAGUA;NIC    ;;;A;31/07/1998
-088;CUPON GEORGIANO  ;RUR    ;;;A;04/08/1998
+8;BIRR             ;ETB    ;;;A;28/07/1998
+50;CORDOBA/NICARAGUA;NIC    ;;;A;31/07/1998
+88;CUPON GEORGIANO  ;RUR    ;;;A;04/08/1998
 138;DIREITO ESPECIAL ;SDR    ;;;B;
 225;DOLAR/ETIOPIA    ;ETB    ;;;A;04/08/1998
 361;FRANCO BELGA FINA;FBF    ;;;A;04/08/1998
