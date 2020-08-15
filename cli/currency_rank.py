@@ -10,6 +10,7 @@ sys.path.insert(0, os.path.dirname(os.getcwd()))
 from create_currency_df_async import create_currency_df
 
 
+
 if __name__ == "__main__":
     start = time()
 
@@ -19,24 +20,27 @@ if __name__ == "__main__":
     #                     help='The market date to search. eg: 20200810 or 20150812')
     # args = parser.parse_args()
 
-    # ASYNC LOOP
     loop = asyncio.get_event_loop()
-    # currecy_df = loop.run_until_complete(create_currency_df(args.date))
-    currecy_df = loop.run_until_complete(create_currency_df(20200810))
+    # result = loop.run_until_complete(create_currency_df(args.date))
+    result = loop.run_until_complete(create_currency_df(20150808))
 
-    # loop.close()
+    # treats 'x' or bad formatted files
+    try:
+        # RANKS
+        result = result[:1]
 
-    # GENERATING RANKS FROM RESULTING DF
-    result = currecy_df[:1]
-
-    # FORMATING RESULT TO CLIS
-    currency_symbol = f" {result['Pais'].index[0]}"
-    country = result['Pais'][0].strip()
-    usd_to_currency = str(result['USD to Currency'][0].round(3))
-    cli_result = [currency_symbol, country, usd_to_currency]
+        # formatting result to CLI
+        currency_symbol = f" {result['Pais'].index[0]}"
+        country = result['Pais'][0].strip()
+        usd_to_currency = str(result['USD to Currency'][0].round(3))
+        cli_result = [currency_symbol, country, usd_to_currency]
+    except:
+       cli_result = 'x'
 
     print("\n=====================================")
     print(', '.join(cli_result))
     print("=====================================\n")
 
     print(f"Process took: {time() - start} seconds")
+
+    # bug 20150808
