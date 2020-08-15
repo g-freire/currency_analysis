@@ -12,7 +12,7 @@ import pandas as pd
 
 async def fetch(session, url):
     async with session.get(url) as response:
-        return await (response.text())
+        return await response.text()
 
 
 async def download_preprocess_currency_quotation_df(date: int) -> pd.DataFrame:
@@ -120,8 +120,3 @@ async def create_currency_df(date: int) -> pd.DataFrame:
 # if __name__ == '__main__':
 #     loop = asyncio.get_event_loop()
 #     result = loop.run_until_complete(create_currency_df(20200810))
-
-# TODO
-"""
-tests, api, treat exception
-"""
