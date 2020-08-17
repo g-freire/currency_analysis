@@ -12,7 +12,7 @@ import pandas as pd
 
 async def fetch(session, url):
     async with session.get(url) as response:
-        return await (response.text())
+        return await response.text()
 
 
 async def download_preprocess_currency_quotation_df(date: int) -> pd.DataFrame:
