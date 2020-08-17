@@ -120,8 +120,3 @@ async def create_currency_df(date: int) -> pd.DataFrame:
 # if __name__ == '__main__':
 #     loop = asyncio.get_event_loop()
 #     result = loop.run_until_complete(create_currency_df(20200810))
-
-# TODO
-"""
-tests, api, treat exception
-"""
